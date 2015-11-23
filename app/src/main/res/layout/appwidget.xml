@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:minHeight="@dimen/widget_min_height"
+    android:minWidth="@dimen/widget_min_width"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_centerVertical="true"
+        android:id="@+id/app_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/ic_launcher" />
+
+    <RelativeLayout
+        android:id="@+id/info_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/app_logo"
+        android:layout_toRightOf="@+id/app_logo"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/widget_date_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/abc_control_padding_material"
+            android:text="@string/widget_date_text" />
+
+        <LinearLayout
+            android:id="@+id/widget_home_score_box"
+            style="@style/ScoreBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/widget_date_textview"
+            android:layout_marginEnd="@dimen/widget_margin"
+            android:layout_marginRight="@dimen/widget_margin"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/widget_home_text"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/widget_home_team"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/widget_home_team_text" />
+
+            <TextView
+                android:id="@+id/widget_home_score"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/widget_home_scores_text" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/widget_away_score_box"
+            style="@style/ScoreBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/widget_date_textview"
+            android:layout_marginLeft="@dimen/widget_margin"
+            android:layout_marginStart="@dimen/widget_margin"
+            android:layout_toRightOf="@id/widget_home_score_box"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/widget_away_text"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/widget_away_team"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/widget_away_team_text" />
+
+            <TextView
+                android:id="@+id/widget_away_score"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/widget_away_scores_text" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
