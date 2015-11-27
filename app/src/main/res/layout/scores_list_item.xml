@@ -9,6 +9,7 @@
         android:orientation="horizontal" android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="5dp"
+        android:baselineAligned="false"
         >
         <LinearLayout
             android:layout_width="0dp"
@@ -16,6 +17,7 @@
             android:layout_weight="1"
             android:orientation="vertical">
             <ImageView
+                android:contentDescription="@string/home_crest_desc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -59,6 +61,7 @@
             android:layout_weight="1"
             android:orientation="vertical">
             <ImageView
+                android:contentDescription="@string/away_crest_desc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

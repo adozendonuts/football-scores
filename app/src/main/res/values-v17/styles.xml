@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Widget Style-->
+    <style name="ScoreBox" parent="AppTheme">
+        <item name="android:paddingLeft">@dimen/widget_padding</item>
+        <item name="android:paddingStart">@dimen/widget_padding</item>
+        <item name="android:paddingRight">@dimen/widget_padding</item>
+        <item name="android:paddingEnd">@dimen/widget_padding</item>
+    </style>
+
+</resources>
