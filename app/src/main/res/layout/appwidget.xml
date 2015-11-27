@@ -6,11 +6,22 @@
     android:minHeight="@dimen/widget_min_height"
     android:minWidth="@dimen/widget_min_width"
     android:orientation="horizontal"
-    android:paddingLeft="@dimen/abc_action_bar_default_padding_material"
-    android:paddingStart="@dimen/abc_action_bar_default_padding_material"
-    android:paddingRight="@dimen/abc_action_bar_default_padding_material"
     android:paddingEnd="@dimen/abc_action_bar_default_padding_material"
+    android:paddingLeft="@dimen/abc_action_bar_default_padding_material"
+    android:paddingRight="@dimen/abc_action_bar_default_padding_material"
+    android:paddingStart="@dimen/abc_action_bar_default_padding_material"
     android:paddingTop="@dimen/abc_action_bar_default_padding_material">
+
+    <TextView
+        android:id="@+id/widget_date_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/abc_control_padding_material"
+        android:gravity="center"
+        android:text="@string/widget_date_text"
+        android:textColor="@color/primary_dark_material_dark" />
 
     <ImageView
         android:id="@+id/app_logo"
@@ -19,45 +30,28 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
-        android:contentDescription="@string/app_name"
         android:src="@drawable/ic_launcher" />
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/info_box"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/widget_date_textview"
         android:layout_toEndOf="@+id/app_logo"
         android:layout_toRightOf="@+id/app_logo"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/widget_date_textview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="@dimen/abc_control_padding_material"
-            android:text="@string/widget_date_text"
-            android:textColor="@color/primary_dark_material_dark" />
 
         <LinearLayout
-            android:id="@+id/widget_away_score_box"
-            style="@style/ScoreBox"
-            android:layout_width="wrap_content"
+            android:id="@+id/widget_away_home_titles"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@id/widget_date_textview"
             android:layout_marginBottom="@dimen/abc_action_bar_default_padding_material"
-            android:layout_marginEnd="@dimen/widget_margin"
-            android:layout_marginLeft="@dimen/widget_margin"
-            android:layout_marginRight="@dimen/widget_margin"
-            android:layout_marginStart="@dimen/widget_margin"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/widget_away_text"
@@ -65,58 +59,63 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/widget_away_team"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/widget_away_team_text"
-                android:textColor="@color/primary_dark_material_dark" />
-
-            <TextView
-                android:id="@+id/widget_away_score"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/widget_away_scores_text"
-                android:textColor="@color/primary_dark_material_dark" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/widget_home_score_box"
-            style="@style/ScoreBox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/widget_date_textview"
-            android:layout_marginBottom="@dimen/abc_action_bar_default_padding_material"
-            android:layout_toEndOf="@id/widget_away_score_box"
-            android:layout_toRightOf="@id/widget_away_score_box"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/widget_home_text"
                 android:textColor="@color/primary_dark_material_dark"
                 android:textStyle="bold" />
 
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/widget_team_names"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/abc_action_bar_default_padding_material"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/widget_away_team"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/widget_away_team_text"
+                android:textColor="@color/primary_dark_material_dark" />
+
             <TextView
                 android:id="@+id/widget_home_team"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/widget_home_team_text"
                 android:textColor="@color/primary_dark_material_dark" />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/widget_scores">
+
+            <TextView
+                android:id="@+id/widget_away_score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/widget_away_scores_text"
+                android:textColor="@color/primary_dark_material_dark" />
+
             <TextView
                 android:id="@+id/widget_home_score"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/widget_home_scores_text"
@@ -125,6 +124,6 @@
         </LinearLayout>
 
 
-    </RelativeLayout>
+    </LinearLayout>
 
 </RelativeLayout>
