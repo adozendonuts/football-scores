@@ -1,14 +1,15 @@
 package barqsoft.footballscores.widget;
 
+import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.util.Log;
 import android.widget.RemoteViews;
 
+import barqsoft.footballscores.MainActivity;
 import barqsoft.footballscores.R;
 
 
@@ -28,15 +29,19 @@ public class CollectionWidgetProvider extends AppWidgetProvider {
             rv.setRemoteAdapter(R.id.widget_listview, intent);
             rv.setEmptyView(R.id.widget_listview, android.R.id.empty);
 
+            Intent onClickIntent = new Intent(context, MainActivity.class);
+            PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, onClickIntent, 0);
+            rv.setOnClickPendingIntent(R.id.widget_name, pendingIntent);
+
             appWidgetManager.updateAppWidget(appWidgetId, rv);
-            Log.v("ONUPDATECOLLECTION", "on update called");
+//            Log.v("ONUPDATECOLLECTION", "on update called");
         }
         super.onUpdate(context, appWidgetManager, appWidgetIds);
     }
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.v("ONUPDATECOLLECTION", "onReceive called");
+//        Log.v("ONUPDATECOLLECTION", "onReceive called");
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
         int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(context, getClass()));
         appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.widget_listview);

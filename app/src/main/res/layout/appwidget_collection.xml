@@ -14,7 +14,7 @@
         android:background="@color/red08">
 
         <TextView
-            android:id="@+id/widget_date_textview"
+            android:id="@+id/widget_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="@dimen/abc_action_bar_default_height_material"

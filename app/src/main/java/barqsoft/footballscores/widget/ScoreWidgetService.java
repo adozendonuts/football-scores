@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
-import android.util.Log;
 import android.view.View;
 import android.widget.RemoteViews;
 
@@ -29,12 +28,12 @@ public class ScoreWidgetService extends IntentService {
     };
 
     // variables representing indices in FOOTBALL_DATA_COLUMNS array
-    static final int COL_DATE = 0;
-    static final int COL_HOME_TEAM = 1;
-    static final int COL_HOME_GOALS = 2;
-    static final int COL_AWAY_TEAM = 3;
-    static final int COL_AWAY_GOALS = 4;
-    static final int COL_GAME_TIME= 5;
+    private static final int COL_DATE = 0;
+    private static final int COL_HOME_TEAM = 1;
+    private static final int COL_HOME_GOALS = 2;
+    private static final int COL_AWAY_TEAM = 3;
+    private static final int COL_AWAY_GOALS = 4;
+    private static final int COL_GAME_TIME= 5;
 
     public ScoreWidgetService() {
         super("ScoreWidgetService");
@@ -75,8 +74,8 @@ public class ScoreWidgetService extends IntentService {
                     String home_team = data.getString(COL_HOME_TEAM);
                     String away_team = data.getString(COL_AWAY_TEAM);
                     // db shows -1 if no record/value is available for that field. Changed to N/A to make it more meaningful
-                    String home_score = (data.getString(COL_HOME_GOALS).equals("-1")) ? "No scores available" : data.getString(COL_HOME_GOALS);
-                    String away_score = (data.getString(COL_AWAY_GOALS).equals("-1")) ? "No scores available" : data.getString(COL_AWAY_GOALS);
+                    String home_score = (data.getString(COL_HOME_GOALS).equals("-1")) ? getString(R.string.no_scores_available) : data.getString(COL_HOME_GOALS);
+                    String away_score = (data.getString(COL_AWAY_GOALS).equals("-1")) ? getString(R.string.no_scores_available) : data.getString(COL_AWAY_GOALS);
 
                     String scoresDesc;
                     if (data.getString(COL_HOME_GOALS).equals("-1") || data.getString(COL_AWAY_GOALS).equals("-1")) {
@@ -93,7 +92,7 @@ public class ScoreWidgetService extends IntentService {
                     remoteViews.setTextViewText(R.id.widget_away_team, away_team);
                     remoteViews.setTextViewText(R.id.widget_away_score, away_score);
 
-                    Log.v("ONUPDATE", date + home_team + home_score + away_team + away_score);
+//                    Log.v("ONUPDATE", date + home_team + home_score + away_team + away_score + " actual home: " + data.getString(COL_HOME_GOALS));
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1) {
                         remoteViews.setContentDescription(R.id.app_logo, contentDescription);
                     }
